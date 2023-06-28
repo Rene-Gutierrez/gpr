@@ -16,7 +16,7 @@ gpr_log_lik_gra_tra <- function(m, a, b, c, y, D){
   g_b <- - sum(Sig_Inv * K) / 2
   g_b <-   g_b + t(r) %*% K %*% r / 2
   # Derivative of phi
-  g_c <- sum(diag(Sig_Inv * K * D)) * phi / 2
+  g_c <- sum(Sig_Inv * (K * D)) * phi / 2
   g_c <- g_c - t(r) %*% (K * D) %*% r * phi / 2
   return(c(g_a, g_b, g_c))
 }
